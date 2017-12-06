@@ -1,16 +1,14 @@
 class demo_cis::controls::redhat::seven::cis_1_7_1_2 (
-  $enable = true
+  $enable = false
 ){
   if $enable == true {
-    if !defined(File['/etc/issue']) {
-      file {'cis_1_7_1_2_issue':
-        ensure  => present,
-        path    => '/etc/issue',
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        content => 'Authorized uses only. All activity may be monitored and reported.',
-      }
+    file {'cis_1_7_1_2_issue':
+      ensure  => present,
+      path    => '/etc/issue',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => 'Authorized uses only. All activity may be monitored and reported.',
     }
   }
 
